@@ -1,20 +1,23 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import AppLoading from "expo-app-loading";
+import React, { Component } from 'react'
+import { Image, View } from "react-native"
+import { DrawerNavigation } from './navigation/DrawerNavigation'
+import * as Font from "expo-font";
 
 export default function App() {
+  const [fontsLoaded] = Font.useFonts({
+    "Fira Code iScript": require("./assets/fonts/FiraCodeiScript-Italic.ttf"),
+    "Chango-Regular": require("./assets/fonts/Chango-Regular.ttf"),
+    "Lobster-Regular": require("./assets/fonts/Lobster-Regular.ttf"),
+    "Tangerine-Regular": require("./assets/fonts/Tangerine-Regular.ttf"),
+    "Tangerine-Bold": require("./assets/fonts/Tangerine-Bold.ttf"),
+  });
+
+  if (!fontsLoaded) {
+    return <AppLoading />;
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <DrawerNavigation />
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

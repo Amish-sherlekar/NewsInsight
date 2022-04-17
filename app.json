@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "NewsInsight",
-    "slug": "NewsInsight",
+    "name": "newsapp",
+    "slug": "snack-119091b2-f6b5-4759-94bc-3ddbb7f3bd60",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
