@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Text, View, FlatList, Image, TouchableOpacity, Linking } from 'react-native';
+import {Ionicons} from "@expo/vector-icons"
 
 export default class HealthScreen extends Component {
   constructor() {
@@ -47,6 +48,11 @@ export default class HealthScreen extends Component {
     }else{
       return(
         <View style={{ backgroundColor: '#d3d3d3' }}>
+          <TouchableOpacity onPress={()=>{
+            this.props.navigation.navigate('Home_')
+          }}>
+            <Ionicons name='arrow-back' size={30} />
+          </TouchableOpacity>
           <FlatList
             key={this.state.article.articles.title}
             keyExtractor={(item, index) => index.toString()}

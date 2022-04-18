@@ -27,6 +27,7 @@ const StackNavigation = () => {
        <Stack.Screen name="General" component={NewsScreen} />
        <Stack.Screen name="Business" component={BusinessScreen} />
        <Stack.Screen name="Entertainment" component={EntertainmentScreen} />
+       <Stack.Screen name="Technology" component={TechnologyScreen} />
        <Stack.Screen name="Health" component={HealthScreen} />
        <Stack.Screen name="Science" component={ScienceScreen} />
        <Stack.Screen name="Sports" component={SportsScreen} />

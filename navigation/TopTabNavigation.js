@@ -14,6 +14,7 @@ export default class TopTabNavigation extends Component {
     render() {
         return (
             <Tab.Navigator
+            initialRouteName="Home"
                 screenOptions={({ route }) => ({
                     tabBarIconStyle: {
                         width: 40,
@@ -34,7 +35,7 @@ export default class TopTabNavigation extends Component {
                             iconName = 'ios-home'
                             color = focused ? '#008000' : '#B22222'
                             
-                        } else if (route.name === 'News') {
+                        } else if (route.name === 'All News') {
                             iconName = 'md-newspaper'
                             color = focused ? 'tomato' : 'gray'
                             color = focused ? '#008000' : '#B22222'
@@ -45,7 +46,7 @@ export default class TopTabNavigation extends Component {
                 })}
             >
                 <Tab.Screen name="Home" component={ExploreScreen} />
-                <Tab.Screen name="News" component={NewsScreen} />
+                <Tab.Screen name="All News" component={NewsScreen} />
             </Tab.Navigator>
         )
     }

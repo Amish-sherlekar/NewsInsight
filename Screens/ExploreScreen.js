@@ -16,9 +16,11 @@ import {
   Linking,
 } from 'react-native';
 import { RFValue } from 'react-native-responsive-fontsize';
+import Carousel from 'react-native-snap-carousel';
 import { NewsCategory, NewsSources } from '../NewsProps';
+import Headlines from '../NewsScreen/Headlines';
 
-const { width, height } = Dimensions.get('window');
+const windowWidth = Dimensions.get('window').width;
 
 // Platform.isPad
 
@@ -88,55 +90,17 @@ export default class ExploreScreen extends Component {
             horizontal={true}
             showsHorizontalScrollIndicator={false}
           />
-          <ScrollView
-              horizontal
-              showsHorizontalScrollIndicator={false}
-              >
-              <View style={{ flexDirection: 'row' }}>
-              <View style={{ backgroundColor: '#fff', width: 300, height: 400, borderRadius: 30, marginLeft: 30,  }}>
-                  <Image 
-                  source={{uri: this.state.article.articles[0].urlToImage }}
-                  style={{ width: 300, height: 200, borderTopLeftRadius: 30, borderTopRightRadius: 30 }}
-                   />
-                  <Text style={{ fontSize: 13, fontWeight: 'Bold', color: 'black', margin: 10 }}>
-                  {this.state.article.articles[0].title}
-                  </Text>
-                  <Text 
-                  style={{ fontSize: 13, color: 'black', marginHorizontal: 10, top: -10 }}>
-                  {this.state.article.articles[0].description}
-                  </Text>
-              </View>
-              <View style={{ backgroundColor: '#fff', width: 300, height: 400, borderRadius: 30, marginLeft: 30,  }}>
-                  <Image 
-                  source={{uri: this.state.article.articles[1].urlToImage }}
-                  style={{ width: 250, height: 200, left: 25, borderRadius: 30 }}
-                   />
-                  <Text style={{ fontSize: 13, fontWeight: 'Bold', color: 'black', margin: 10 }}>
-                  {this.state.article.articles[1].title}
-                  </Text>
-                  <Text 
-                  style={{ fontSize: 10, color: 'black', marginHorizontal: 10, top: -10 }}>
-                  {this.state.article.articles[1].description}
-                  </Text>
-              </View>
-              <View style={{ backgroundColor: '#fff', width: 300, height: 400, borderRadius: 30, marginLeft: 30,  }}>
-                  <Image 
-                  source={{uri: this.state.article.articles[2].urlToImage }}
-                  style={{ width: 250, height: 200, left: 25, borderRadius: 30 }}
-                   />
-                  <Text style={{ fontSize: 13, fontWeight: 'Bold', color: 'black', margin: 10 }}>
-                  {this.state.article.articles[2].title}
-                  </Text>
-                  <Text 
-                  style={{ fontSize: 10, color: 'black', marginHorizontal: 10, top: -10 }}>
-                  {this.state.article.articles[2].description}
-                  </Text>
-              </View>
-              </View>
-              </ScrollView>
+
+          <View style={{ flexDirection: 'row' }}>
+            <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+              <Headlines data={this.state.article.articles[0]} />
+              <Headlines data={this.state.article.articles[1]} />
+              <Headlines data={this.state.article.articles[2]} />
+            </ScrollView>
+          </View>
+
           
-          <Text style={styles.sourceText}>Sources</Text>
-          
+          <Text style={styles.sourceText}>Sources</Text>          
           <FlatList
             keyExtractor={(element) => element.id}
             data={NewsSources}
